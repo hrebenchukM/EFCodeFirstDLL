@@ -20,6 +20,11 @@ namespace CountryContinentContextLibrary
 
         static CountryContinentContext()
         {
+          
+        
+          
+
+
             var builder = new ConfigurationBuilder();
             builder.SetBasePath(Directory.GetCurrentDirectory());
             builder.AddJsonFile("appsettings.json");
@@ -27,7 +32,7 @@ namespace CountryContinentContextLibrary
             string connectionString = config.GetConnectionString("DefaultConnection");
 
             var optionsBuilder = new DbContextOptionsBuilder<CountryContinentContext>();
-            _options = optionsBuilder.UseSqlServer(connectionString).Options;
+            _options = optionsBuilder.UseSqlite(connectionString).Options;//UseMySql//new MySqlServerVersion(new System.Version(10, 4, 27))); // SELECT VERSION(); команда получения версии в среде MySQL Workbench
         }
 
 
